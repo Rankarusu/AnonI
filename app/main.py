@@ -36,7 +36,7 @@ def prep_shitpost(prompt, post):
 
     post = post.strip()
     if post.startswith((".", "!", "?")):
-        post = post.strip((".", "!", "?"))
+        post = post.strip(".!?")
         result = post
     else:
         result = prompt + " " + post
