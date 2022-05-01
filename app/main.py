@@ -7,7 +7,7 @@ import schedule
 import tweepy
 
 from access import config
-import prompts
+from prompts import prompts
 
 
 def twitter_login():
@@ -22,12 +22,17 @@ def twitter_login():
 
 def get_prompt():
     """get a prompt from prompts.py"""
-    return random.choice(prompts.prompts)
+    key = random.choice(list(prompts.keys()))
+    noun = random.choice(prompts[key]["prompts"])
+    verb = random.choice(prompts[key]["continuations"])
+
+    return " ".join([noun, verb]).strip()
 
 
 def get_shitpost(model, settings, prompt):
     """get a shitpost from the AI"""
-    result = model.generate_text(prompt, args = settings)
+    #strip of # so the AI is not confused
+    result = model.generate_text(prompt.strip("#"), args = settings)
     return result.text
 
 
@@ -90,7 +95,8 @@ def main():
     while True:
         schedule.run_pending()
         time.sleep(1)
-    # shitpost(api, happy_gen, settings)
+    #shitpost(api, happy_gen, settings)
+
 
 
 if __name__ == "__main__":
