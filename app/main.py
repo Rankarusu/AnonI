@@ -109,7 +109,7 @@ def get_latest_mention_id(path:str):
 
 def reply_to_mentions(api, model, settings, user_id):
     """reply to all mentions"""
-    path = "app/data/mention_id.txt"
+    path = "/app/data/mention_id.txt"
     latest_id = get_latest_mention_id(path)
     print("latest id:", latest_id)
     mentions = get_mentions(api, path, latest_id, user_id)
