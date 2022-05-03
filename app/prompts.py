@@ -14,7 +14,7 @@ prompts = {
             "#Capitalism",
             "#Christianity",
             "#Communism",
-            "Copium"
+            "Copium",
             "#Cyber-Bullying",
             "#Feminism",
             "#Healthcare",
